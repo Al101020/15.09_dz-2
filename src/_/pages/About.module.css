@@ -1,0 +1,88 @@
+.page {
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.label {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 40px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+}
+
+.textSection p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink-3);
+  margin-bottom: 20px;
+}
+
+.textSection .dim {
+  color: var(--ink-4);
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.stackSection .stackLabel {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 24px;
+}
+
+.stackList {
+  display: flex;
+  flex-direction: column;
+}
+
+.stackItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

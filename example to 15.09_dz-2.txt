@@ -1,0 +1,177 @@
+2026.03.02 - https://blog.skillfactory.ru/marshrutizatsiya-v-react-router/
+
+	Запустил команду:
+yarn create vite my-app --template react
+	После установки появилась папка my-app, теперь содержимое этой папки перекидываю в родительскую папку:
+mv my-app/* ./
+mv my-app/.* ./
+
+yarn add react-router
+yarn dev
+
+	Для этого в папке src создайте папку pages, а внутри нее — следующие четыре файла с расширением .jsx:
+
+// src/pages/Home.jsx
+export default function Home() {
+  return <h1>Главная</h1>;
+}
+// src/pages/About.jsx
+export default function About() {
+  return <h1>О себе</h1>;
+}
+// src/pages/Projects.jsx
+export default function Projects() {
+  return <h1>Проекты</h1>;
+}
+// src/pages/NotFound.jsx
+export default function NotFound() {
+  return <h1>404 — Страница не найдена</h1>;
+}
+
+	В папке src файл main.jsx обернул приложение в BrowserRouter:
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router'
+import App from './App.jsx'
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+)
+	BrowserRouter — это компонент, который дает доступ к функциям маршрутизации во всем приложении
+
+	В папке src создал подпапку components, а в ней файл Navbar.jsx:
+
+import { Link } from 'react-router'
+export default function Navbar() {
+  return (
+    <nav>
+      <Link to="/">Главная</Link>
+      <Link to="/about">О себе</Link>
+      <Link to="/projects">Проекты</Link>
+    </nav>
+  )
+}
+
+	Чтобы навигация отображалась на всех страницах, добавьте компонент Navbar в файл App.jsx. Расположите его над блоком Routes:
+
+import { Routes, Route } from 'react-router'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import NotFound from './pages/NotFound'
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  )
+}
+
+	Здесь есть нюанс: NavLink автоматически добавляет CSS-класс .active к элементу,
+когда ссылка активна — это поведение работает по умолчанию. Поэтому самый простой 
+способ стилизовать активную ссылку — написать в CSS правило .active { … } 
+и не передавать никаких дополнительных пропсов в NavLink.
+	Добавил динамическое применение CSS-класса active через проп className и обновим файл Navbar.jsx:
+
+import { NavLink } from 'react-router'
+export default function Navbar() {
+  return (
+    <nav>
+      <NavLink
+        to="/"
+        className={({ isActive }) => isActive ? 'active' : ''}
+        end
+      >
+        Главная
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive }) => isActive ? 'active' : ''}
+      >
+        О себе
+      </NavLink>
+      <NavLink
+        to="/projects"
+        className={({ isActive }) => isActive ? 'active' : ''}
+      >
+        Проекты
+      </NavLink>
+    </nav>
+  )
+}
+
+	Теперь обновил файл Projects.jsx и добавил ссылки на отдельные проекты:
+
+import { Link } from 'react-router'
+const projects = [
+  { id: 1, title: 'Интернет-магазин' },
+  { id: 2, title: 'Погодный сервис'},
+  { id: 3, title: 'Трекер задач' },
+]
+export default function Projects() {
+  return (
+    <div>
+      <h1>Проекты</h1>
+      <ul>
+        {projects.map(project => (
+          <li key={project.id}>
+            <Link to={`/projects/${project.id}`}>{project.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+	Создал файл Layout.jsx в папке components — это будет общий компонент,
+который объединяет навигационную панель Navbar и динамическую область для 
+отображения содержимого дочерних маршрутов через Outlet:
+
+import { Outlet } from 'react-router'
+import Navbar from './Navbar'
+export default function Layout() {
+  return (
+    <>
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+    </>
+  )
+}
+
+	Перестроил маршруты в App.jsx:
+
+import { Routes, Route } from 'react-router'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import ProjectDetail from './pages/ProjectDetail'
+import NotFound from './pages/NotFound'
+export default function App() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  )
+}

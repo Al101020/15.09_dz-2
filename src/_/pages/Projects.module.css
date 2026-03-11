@@ -1,0 +1,88 @@
+.page {
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.label {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.count {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ink-4);
+  text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  padding: 26px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.18s;
+}
+
+.card:hover {
+  border-left-color: var(--accent);
+  background: var(--bg-hover);
+  transform: translateX(3px);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.cardArrow {
+  color: var(--accent);
+  font-size: 20px;
+  transition: transform 0.18s;
+}
+
+.card:hover .cardArrow {
+  transform: translateX(4px);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

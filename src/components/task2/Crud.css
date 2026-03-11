@@ -1,0 +1,60 @@
+.task2 {
+  background: rgb(204, 203, 203);
+  padding: 10px;
+}
+
+#btnNewPost {
+  margin: 5px 0 0 0;
+  margin-right: 10px;
+  background-color: rgb(63, 63, 135);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#btnNewPost:hover {
+  margin: 5px 0 0 0;
+  margin-right: 10px;
+  background-color: rgb(63, 135, 132);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btnNewPost {
+  background: white;
+  width: 100%;
+  min-height: 30px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.posts {
+  /* margin: 5px; */
+  /* border: 1px solid #361F36; */
+  /* padding: 1px 0 1px 0; */
+  width: 100%;
+  /* min-height: 25px; */
+  /* height: 100%; */
+  /* background: white; */
+}
+
+
+
+
+
+#inputNewPost {
+  width: 330px;
+  margin: 5px 0 0 10px;
+  border: 1px solid #ffffff;
+}
+
+.post {
+  margin: 5px 0 5px 0;
+  /* width: 450px; */
+  width: 100%;
+  min-height: 20px;
+  /* height: 100%; */
+  /* border: 1px solid black; */
+  background: white;
+}
