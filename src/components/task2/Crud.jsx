@@ -1,16 +1,14 @@
 import './Crud.css';
-import { Routes, Route } from 'react-router'
-import HomePage from './pages/HomePage'
-import PageNewPost from './pages/PageNewPost';
+import { Routes, Route } from 'react-router';
 import { useEffect, useState } from 'react';
+import HomePage from './pages/HomePage';
+import PageNewPost from './pages/PageNewPost';
+
 // import { useNavigate } from 'react-router-dom';
 // import fetchPosts from './fetchPosts';
 
-
-
 function Crud() {
   const [posts, setPosts] = useState('');
-
 
   useEffect(() => {
     console.log('один раз в начале');
