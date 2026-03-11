@@ -7,7 +7,7 @@ const fetchPosts = () => {
         return response.json();
     })
     .then(data => {
-      // console.log(data);
+      console.log(data);
     })
     .catch(error => {
       console.error('!!! FetchPosts error:', error);
