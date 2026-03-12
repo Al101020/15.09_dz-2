@@ -4,43 +4,26 @@ import { useEffect, useState } from 'react';
 import HomePage from './pages/HomePage';
 import PageNewPost from './pages/PageNewPost';
 
-// import { useNavigate } from 'react-router-dom';
-// import fetchPosts from './fetchPosts';
+import postsGet from './fetch/postsGet';
 
 function Crud() {
   const [posts, setPosts] = useState('');
 
   useEffect(() => {
-    console.log('один раз в начале');
-    fetch('http://localhost:7070/posts')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-          return response.json();
-      })
-      .then(data => {
-        setPosts(data);
-      })
-      .catch(error => {
-        console.error('!!! FetchPosts error:', error);
-      });
+    postsGet(setPosts);
   }, []);
-  
 
   useEffect(() => {
     if (posts === '') {
       return;
-    }
-    console.log('изменился posts');
-    console.log(posts);
+    }    // console.log('изменился posts');    // console.log(posts);
   }, [posts]);
 
   return (
     <div className='task2'>
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/posts/new' element={<PageNewPost />} />
+        <Route path='/' element={<HomePage posts={posts}/>} />
+        <Route path='/posts/new' element={<PageNewPost setPosts={setPosts} />} />
       </Routes>
     </div>
   )

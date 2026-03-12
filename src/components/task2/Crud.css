@@ -13,12 +13,11 @@
 }
 
 #btnNewPost:hover {
-  margin: 5px 0 0 0;
-  margin-right: 10px;
   background-color: rgb(63, 135, 132);
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  cursor: pointer;
+}
+
+#btnNewPost:active {
+  background-color: rgb(119, 63, 135);
 }
 
 .btnNewPost {
@@ -29,32 +28,73 @@
   text-align: right;
 }
 
-.posts {
+/* .posts { */
   /* margin: 5px; */
   /* border: 1px solid #361F36; */
   /* padding: 1px 0 1px 0; */
-  width: 100%;
+  /* width: 100%; */
   /* min-height: 25px; */
   /* height: 100%; */
   /* background: white; */
+/* } */
+
+/* Страница создания поста */
+
+.PageNewPost {
+  
+  background-color: #ffffff;
 }
 
+.newPostTitle {
+  display: flex;
+  padding: 5px 10px;
+}
 
+.newPostTitle a {
+  margin: 5px 0;
+  flex-grow: 1;
+}
 
-
-
-#inputNewPost {
-  width: 330px;
+#newPostInput {
+  width: 425px;
   margin: 5px 0 0 10px;
   border: 1px solid #ffffff;
 }
 
-.post {
+#newPostBtn {
+  margin: 10px 10px 10px 300px;
+  background-color: rgb(63, 63, 135);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#newPostBtn:hover {
+  background-color: rgb(63, 135, 132);
+}
+
+#newPostBtn:active {
+  background-color: rgb(119, 63, 135);
+}
+
+.closebtn {
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+
+
+
+
+
+
+/* .post {
   margin: 5px 0 5px 0;
-  /* width: 450px; */
   width: 100%;
   min-height: 20px;
+  background: white;
+} */
+  /* width: 450px; */
   /* height: 100%; */
   /* border: 1px solid black; */
-  background: white;
-}

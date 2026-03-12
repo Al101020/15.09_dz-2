@@ -5,7 +5,7 @@ export default function BtnNewPost() {
 
   const funcClickBtnNewPost = (e) => {
     e.preventDefault();
-    console.log('Кнопка - Создать пост');
+    // console.log('Кнопка - Создать пост');
     navigate('/posts/new', { replace: true });
   }
   return (
