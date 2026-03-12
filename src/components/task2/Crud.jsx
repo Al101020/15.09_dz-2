@@ -8,16 +8,26 @@ import postsGet from './fetch/postsGet';
 
 function Crud() {
   const [posts, setPosts] = useState('');
+  const [postsArr, setPostsArr] = useState([]);
 
   useEffect(() => {
     postsGet(setPosts);
+    // console.log(posts);
   }, []);
 
+  // useEffect(() => {
+  //       // console.log('изменился posts');    // console.log(posts);
+  // }, [posts]);
+
   useEffect(() => {
+    // console.log(posts.length);
     if (posts === '') {
       return;
-    }    // console.log('изменился posts');    // console.log(posts);
-  }, [posts]);
+    } else if (posts === posts.length) {
+      return;
+    }
+    console.log(posts);
+  }, [postsArr]);
 
   return (
     <div className='task2'>
