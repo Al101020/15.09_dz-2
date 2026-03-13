@@ -19,11 +19,8 @@ export default function PageNewPost(props) {
   const toPublish = () => {  // e.preventDefault();  // console.log(newPost);
     if (newPost === '') {
       return;      // console.log('toPublish - ПУСТО');      // return;
-    } else {      // console.log(newPost);
-      // let myuuid = uuidv4();
-      // const toPublishNewPost = {'id': myuuid, 'content': newPost};
-      const toPublishNewPost = {'id': 0, 'content': newPost};
-      // console.log(toPublishNewPost);
+    } else {      // console.log(newPost);      // let myuuid = uuidv4();      // const toPublishNewPost = {'id': myuuid, 'content': newPost};
+      const toPublishNewPost = {'id': 0, 'content': newPost};// console.log(toPublishNewPost);
       createPost(toPublishNewPost);
       postsGet(props.setPosts);
     }
@@ -32,7 +29,7 @@ export default function PageNewPost(props) {
   };
 
   const closebtn = () => {
-    console.log('closebtn');
+    navigate('/', { replace: true });    // console.log('closebtn');
   }
 
   return <>

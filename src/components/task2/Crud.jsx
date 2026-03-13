@@ -11,28 +11,20 @@ function Crud() {
   const [postsArr, setPostsArr] = useState([]);
 
   useEffect(() => {
-    postsGet(setPosts);
-    // console.log(posts);
-  }, []);
-
-  // useEffect(() => {
-  //       // console.log('изменился posts');    // console.log(posts);
-  // }, [posts]);
-
-  useEffect(() => {
-    // console.log(posts.length);
     if (posts === '') {
+      postsGet(setPosts);
       return;
-    } else if (posts === posts.length) {
+    } else if (posts.length === 0) {
       return;
+    } else if (posts.length > 0) {
+      setPostsArr(posts);
     }
-    console.log(posts);
-  }, [postsArr]);
+  }, [posts]);
 
   return (
     <div className='task2'>
       <Routes>
-        <Route path='/' element={<HomePage posts={posts}/>} />
+        <Route path='/' element={<HomePage postsArr={postsArr}/>} />
         <Route path='/posts/new' element={<PageNewPost setPosts={setPosts} />} />
       </Routes>
     </div>

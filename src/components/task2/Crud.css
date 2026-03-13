@@ -38,6 +38,21 @@
   /* background: white; */
 /* } */
 
+.post {
+  margin: 5px 0 5px 0;
+  width: 100%;
+  min-height: 20px;
+  background: white;
+}
+
+.displayNone {
+  display: none;
+}
+
+.content {
+  font-size: 18px;
+}
+
 /* Страница создания поста */
 
 .PageNewPost {
@@ -83,18 +98,3 @@
   line-height: 20px;
 }
 
-
-
-
-
-
-
-/* .post {
-  margin: 5px 0 5px 0;
-  width: 100%;
-  min-height: 20px;
-  background: white;
-} */
-  /* width: 450px; */
-  /* height: 100%; */
-  /* border: 1px solid black; */

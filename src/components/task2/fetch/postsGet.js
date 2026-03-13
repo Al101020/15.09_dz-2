@@ -7,7 +7,11 @@ const postsGet = (setPosts) => {
         return response.json();
     })
     .then(data => {
-      setPosts(data);
+      // setPosts(data);
+      setTimeout(() => {
+        setPosts(data);
+        // console.log("Waited 3 seconds!");
+    }, 500);
     })
     .catch(error => {
       console.error('!!! FetchPosts error:', error);
