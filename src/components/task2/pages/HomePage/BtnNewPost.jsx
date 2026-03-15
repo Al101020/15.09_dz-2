@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
 export default function BtnNewPost() {
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // console.log('function BtnNewPost');
 
   const funcClickBtnNewPost = (e) => {
-    e.preventDefault();
-    // console.log('Кнопка - Создать пост');
+    e.preventDefault();     // console.log('Кнопка - Создать пост');
     navigate('/posts/new', { replace: true });
   }
   return (

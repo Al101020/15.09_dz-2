@@ -12,11 +12,12 @@ export default function HomePage(props) {  // console.log(props);
     return;
   } else if (postsArr === undefined ) {
     return;
-  } else if (postsArr.length === 0) {
-    return;
-  } else if (postsArr.length > 0) {
-    //
-  }
+  } 
+  // else if (postsArr.length === 0) {
+  //   return;
+  // } else if (postsArr.length > 0) {
+  //   //
+  // }
 
   return <>
     <BtnNewPost />
