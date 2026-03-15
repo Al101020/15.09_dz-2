@@ -3,10 +3,13 @@ import Posts from './HomePage/Posts';
 
 import { useEffect, useState } from 'react';
 
-export default function HomePage(props) {  // console.log(props);
+export default function HomePage(props) {
+  console.log(props);
 
-  const postsArr = props.postsArr;
-  // console.log(postsArr);
+  const postsArr = props.postsArr;  // 
+  const currentPostId = props.currentPostId;
+  console.log(currentPostId);
+  const setCurrentPostId = props.setCurrentPostId;
 
   if (postsArr === '') {
     return;
@@ -21,7 +24,11 @@ export default function HomePage(props) {  // console.log(props);
 
   return <>
     <BtnNewPost />
-    <Posts posts={postsArr} />
+    <Posts 
+      posts={postsArr}
+      currentPostId={props.currentPostId}
+      setCurrentPostId={props.setCurrentPostId}
+    />
   </>;
 }
     

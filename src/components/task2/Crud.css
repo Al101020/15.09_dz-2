@@ -43,6 +43,8 @@
   width: 100%;
   min-height: 20px;
   background: white;
+
+  cursor: pointer;
 }
 
 .displayNone {
@@ -98,3 +100,21 @@
   line-height: 20px;
 }
 
+
+/* Страница просмотр поста */
+.pagePost {
+  height: 100px;
+
+  /* margin: 5px 0 5px 0; */
+  width: 100%;
+  /* min-height: 20px; */
+  background: white;
+}
+
+.post p {
+  margin: 0;
+}
+
+.name-created {
+  display: flex;
+}

@@ -1,30 +1,39 @@
-import { v4 as uuidv4 } from 'uuid';
-// import funcMoment from '../../funcMoment';
+import { v4 as uuidv4 } from 'uuid';// import funcMoment from '../../funcMoment';
 import moment from 'moment';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function Posts(props) {
-  const posts = props.posts;   // moment().format('YYYY-MM-DD');// console.log(posts);
+  // console.log(props);
+  const setCurrentPostId = props.setCurrentPostId;
+  const currentPostId = props.currentPostId;
+  // console.log(setCurrentPostId);
 
-  const currentTime = moment().format('DD.MM.YYYY, h:mm:ss')
-  // console.log(currentTime);
-  // console.log(moment(1773368210679).format('DD.MM.YYYY, h:mm:ss'));
-  const secondTime = moment().format('DD.MM.YYYY, h:mm:ss')
-  // console.log(secondTime);
-  // let diffInMinutes = secondTime.Diff(currentTime, 'minutes');
-  // console.log(diffInMinutes);
+  const posts = props.posts;   // moment().format('YYYY-MM-DD');// 
 
-  const closeBtnPost = (e) => {
-    console.log('Кнопка закрыть Пост');
-    console.log(e.target);
+  const currentTime = moment().format('DD.MM.YYYY, h:mm:ss');  // console.log(currentTime);
+  const secondTime = moment().format('DD.MM.YYYY, h:mm:ss');
+
+  const navigate = useNavigate();
+
+  const clickPost = (e) => {    // console.log('клик по div-Пост');
+    const postId = e.target.closest('.post').children[0].textContent;
+    
+    setCurrentPostId(postId);    // console.log(currentPost);
+
+    navigate(`/posts/${postId}`, { replace: true }); // /posts/{postId}
   }
 
   return (
     <div className='posts'>
       {posts.map(objPost => {
         return (
-          <div key={uuidv4()} className='post'>
-            <div className='displayNone'>{objPost.id}</div>
-            <div className='name-created'>{moment(objPost.created).format('DD.MM.YYYY, h:mm:ss')}</div>
+          <div key={uuidv4()} className='post' onClick={clickPost}>
+            <div className='displayNone id'>{objPost.id}</div>
+            <div className='name-created'>
+              <p>Иван Иваныч Иванов - </p>
+              <p>{moment(objPost.created).format('DD.MM.YYYY, h:mm:ss')}</p>
+            </div>
             <div className='content'>{objPost.content}</div>
           </div>
         );
