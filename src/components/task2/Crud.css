@@ -103,11 +103,8 @@
 
 /* Страница просмотр поста */
 .pagePost {
-  height: 100px;
-
-  /* margin: 5px 0 5px 0; */
-  width: 100%;
-  /* min-height: 20px; */
+  height: 100px;  /* margin: 5px 0 5px 0; */
+  width: 100%;  /* min-height: 20px; */
   background: white;
 }
 
@@ -115,6 +112,46 @@
   margin: 0;
 }
 
-.name-created {
+/* .name-created {
   display: flex;
+} */
+
+.post-date-time {
+  font-size: 10px;
+}
+
+.post-name {
+  font-size: 12px;
+}
+
+.name-created p {
+  margin: 5px 0;
+}
+
+.buttonsPost {
+  display: flex;
+  padding-left: 150px;
+}
+
+#toChange, #delete {
+  margin: 5px;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#toChange {
+  background-color: rgb(63, 63, 135);
+}
+
+#toChange:hover {
+  background-color: rgb(38, 38, 233);
+}
+
+#delete {
+  background-color: red;
+}
+
+#delete:hover {
+  background-color: rgb(120, 30, 30);
 }

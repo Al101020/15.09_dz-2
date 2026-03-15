@@ -31,8 +31,8 @@ export default function Posts(props) {
           <div key={uuidv4()} className='post' onClick={clickPost}>
             <div className='displayNone id'>{objPost.id}</div>
             <div className='name-created'>
-              <p>Иван Иваныч Иванов - </p>
-              <p>{moment(objPost.created).format('DD.MM.YYYY, h:mm:ss')}</p>
+              <p className='name'>Иван Иваныч Иванов</p>
+              <p className='post-date-time'>{moment(objPost.created).format('DD.MM.YYYY, h:mm:ss')}</p>
             </div>
             <div className='content'>{objPost.content}</div>
           </div>
