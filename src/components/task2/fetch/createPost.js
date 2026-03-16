@@ -1,4 +1,4 @@
-const createPost = (body) => {
+const createPost = (body, postsGet, setPosts) => {
   fetch('http://localhost:7070/posts', {
     method: 'POST',
     headers: {
@@ -10,6 +10,10 @@ const createPost = (body) => {
     if (!response.ok) {
       console.log(response);
       throw new Error(`Ошибка HTTP: ${response.status}`);
+    } else {
+      setTimeout(() => {
+        postsGet(setPosts);
+      }, 700);
     }
   })
   .catch(error => {

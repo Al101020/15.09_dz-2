@@ -4,12 +4,12 @@ const postsGet = (setPosts) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-        return response.json();
+      return response.json();
     })
     .then(data => {
       setTimeout(() => {
         setPosts(data);
-    }, 700);
+      }, 700);
     })
     .catch(error => {
       console.error('!!! FetchPosts error:', error);

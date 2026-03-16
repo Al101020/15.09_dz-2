@@ -5,8 +5,8 @@ const putPost = (url, body, postsGet, setPosts) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
-    }).then(response => {      
-      console.log(response);
+    }).then(() => {      
+      // console.log(response);
       setTimeout(() => {
         postsGet(setPosts);
     }, 700);

@@ -3,21 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import createPost from '../fetch/createPost';
 import postsGet from '../fetch/postsGet';
 
-export default function PageNewPost(props) {
+export default function PageNewPost(props) {  // console.log(props);
   const [newPost, setNewPost] = useState('');
   const navigate = useNavigate();
-  
+
   const onChange = ({ target }) => {
     setNewPost(target.value);
   };
   
   const toPublish = () => {
+    const setPosts = props.setPosts;
     if (newPost === '') {
       return;
     } else {
       const toPublishNewPost = {'id': 0, 'content': newPost};
-      createPost(toPublishNewPost);
-      postsGet(props.setPosts);
+      createPost(toPublishNewPost, postsGet, setPosts);
     }
     setNewPost('');
     navigate('/', { replace: true });
