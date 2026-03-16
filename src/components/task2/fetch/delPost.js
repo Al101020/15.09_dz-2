@@ -4,9 +4,8 @@ const delPost = (url, postsGet, setPosts) => {
   }).then(response => {
     setTimeout(() => {
       postsGet(setPosts);
-    }, 500);
+    }, 700);
   })
 };
 
 export default delPost;
-

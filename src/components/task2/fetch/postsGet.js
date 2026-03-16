@@ -9,7 +9,7 @@ const postsGet = (setPosts) => {
     .then(data => {
       setTimeout(() => {
         setPosts(data);
-    }, 500);
+    }, 700);
     })
     .catch(error => {
       console.error('!!! FetchPosts error:', error);
