@@ -11,27 +11,20 @@ export default function Edit(props) {
   
   const navigate = useNavigate();
 
-  console.log(props);
-
   const onChange = ({ target }) => {
     setInputEdit(target.value);
-    console.log(target.value);
   };
 
   const FuncBtnSavePost = () => {
-    console.log('Клик по кнопке Сохранить изменения публикации');
-    console.log(currentPostId);
-    const url = 'http://localhost:7070/posts/' + currentPostId;    // console.log(url);
+    const url = 'http://localhost:7070/posts/' + currentPostId;
     const body = {id: currentPostId, content: inputEdit};
     putPost(url, body, postsGet, setPosts);
-    // console.log(body);
     postsGet(setPosts);
     navigate('/', { replace: true });
   }
 
   const closebtn = () => {
-    navigate('/', { replace: true });    
-    console.log('Клик по кнопке закрыть окно редактирования');
+    navigate('/', { replace: true });
   }
 
   return <>
@@ -56,5 +49,3 @@ export default function Edit(props) {
     </div>
   </>;
 }
-  
-{/* <button type="submit" id='newPostBtn' onClick={toPublish}>Опубликовать</button> */}

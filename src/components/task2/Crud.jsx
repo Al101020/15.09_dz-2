@@ -12,11 +12,9 @@ function Crud() {
   const [posts, setPosts] = useState('');
   const [postsArr, setPostsArr] = useState([]);
   const [currentPostId, setCurrentPostId] = useState('');
-  const [currentPost, setCurrentPost] = useState('');
   const [delPost, setDelPost] = useState(0);
 
   useEffect(() => {
-    
     if (posts === '') {
       postsGet(setPosts);
       return;
@@ -35,12 +33,7 @@ function Crud() {
     if (currentPostId === undefined) {
       setCurrentPostId('');
     }
-    // console.log(currentPostId);
 
-    // const cityId = cities.find(city => city.name === searchTerm).id
-    // console.log(postsArr.find(postObj => postObj.id === currentPostId));
-    // setCurrentPost(postsArr.find(postObj => postObj.id === currentPostId));
-    // console.log(postsArr);
   }, [currentPostId]);
 
   useEffect(() => {
@@ -49,8 +42,6 @@ function Crud() {
     } else if (currentPostId === undefined) {
       setCurrentPostId('');
     }
-    const curentPost = postsArr.find(postObj => postObj.id === currentPostId);
-    console.log(curentPost);
   }, [postsArr]);
 
   useEffect(() => {

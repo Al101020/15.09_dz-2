@@ -12,15 +12,10 @@ const createPost = async(body) => {
       throw new Error(`Ошибка HTTP: ${response.status}`);
     }
 
-    const data = response;
-    // await .json();
-    // console.log('Создан пост с ID:', data.id);
-    // console.log('Полный ответ:', data);
+    const data = response;    // console.log('Полный ответ:', data);
   } catch (error) {
     console.error('Ошибка:', error);
   }
 };
 
 export default createPost;
-
-// createPost();

@@ -1,26 +1,21 @@
-import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import createPost from '../fetch/createPost';
-
 import postsGet from '../fetch/postsGet';
 
 export default function PageNewPost(props) {
   const [newPost, setNewPost] = useState('');
-
   const navigate = useNavigate();
   
   const onChange = ({ target }) => {
-    setNewPost(target.value);    // console.log(target.value);
+    setNewPost(target.value);
   };
   
-  const toPublish = () => {  // e.preventDefault();  // console.log(newPost);
+  const toPublish = () => {
     if (newPost === '') {
-      return;      // console.log('toPublish - ПУСТО');      // return;
-    } else {      // console.log(newPost);      // let myuuid = uuidv4();      // const toPublishNewPost = {'id': myuuid, 'content': newPost};
-      const toPublishNewPost = {'id': 0, 'content': newPost};// console.log(toPublishNewPost);
+      return;
+    } else {
+      const toPublishNewPost = {'id': 0, 'content': newPost};
       createPost(toPublishNewPost);
       postsGet(props.setPosts);
     }
@@ -29,7 +24,7 @@ export default function PageNewPost(props) {
   };
 
   const closebtn = () => {
-    navigate('/', { replace: true });    // console.log('closebtn');
+    navigate('/', { replace: true });
   }
 
   return <>
