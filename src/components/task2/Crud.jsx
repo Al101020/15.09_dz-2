@@ -31,6 +31,10 @@ function Crud() {
     if (posts === '') {
       return;
     }
+    
+    if (currentPostId === undefined) {
+      setCurrentPostId('');
+    }
     // console.log(currentPostId);
 
     // const cityId = cities.find(city => city.name === searchTerm).id
@@ -42,6 +46,8 @@ function Crud() {
   useEffect(() => {
     if (currentPostId === '') {
       return;
+    } else if (currentPostId === undefined) {
+      setCurrentPostId('');
     }
     const curentPost = postsArr.find(postObj => postObj.id === currentPostId);
     console.log(curentPost);

@@ -28,16 +28,6 @@
   text-align: right;
 }
 
-/* .posts { */
-  /* margin: 5px; */
-  /* border: 1px solid #361F36; */
-  /* padding: 1px 0 1px 0; */
-  /* width: 100%; */
-  /* min-height: 25px; */
-  /* height: 100%; */
-  /* background: white; */
-/* } */
-
 .post {
   margin: 5px 0 5px 0;
   width: 100%;
@@ -103,18 +93,14 @@
 
 /* Страница просмотр поста */
 .pagePost {
-  height: 100px;  /* margin: 5px 0 5px 0; */
-  width: 100%;  /* min-height: 20px; */
+  height: 100px;
+  width: 100%;
   background: white;
 }
 
 .post p {
   margin: 0;
 }
-
-/* .name-created {
-  display: flex;
-} */
 
 .post-date-time {
   font-size: 10px;
@@ -145,7 +131,7 @@
 }
 
 #toChange:hover {
-  background-color: rgb(38, 38, 233);
+  background-color: rgb(63, 135, 132);
 }
 
 #delete {
@@ -154,4 +140,36 @@
 
 #delete:hover {
   background-color: rgb(120, 30, 30);
+}
+/* Страница редактирования поста */
+.title-and-btn {
+  display: flex;
+}
+
+.title-page-edit {
+  flex: 1;
+}
+
+.close-btn-edit {
+  font-size: 26px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+#inputEdit {
+  width: 440px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+#btn-save-post {
+  background-color: rgb(63, 63, 135);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 0 0 0 300px;
+}
+
+#btn-save-post:hover {
+  background-color: rgb(63, 135, 132);
 }

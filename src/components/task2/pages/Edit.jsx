@@ -1,27 +1,47 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import putPost from '../fetch/putPost';
+import postsGet from '../fetch/postsGet';
 
 export default function Edit(props) {
   const postsArr = props.postsArr;
-  const currentPostId = props.currentPostId;   
+  const currentPostId = props.currentPostId;
+  const setPosts = props.setPosts;
   const [inputEdit, setInputEdit] = useState(postsArr.find(obj => obj.id == currentPostId).content); // = posts.find(postObj => postObj.id == currentPostId);
   
+  const navigate = useNavigate();
 
   console.log(props);
-  console.log('функция Edit');
 
   const onChange = ({ target }) => {
+    setInputEdit(target.value);
     console.log(target.value);
   };
 
-  const btnSavePost = () => {
-    console.log('btnSavePost');
+  const FuncBtnSavePost = () => {
+    console.log('Клик по кнопке Сохранить изменения публикации');
+    console.log(currentPostId);
+    const url = 'http://localhost:7070/posts/' + currentPostId;    // console.log(url);
+    const body = {id: currentPostId, content: inputEdit};
+    putPost(url, body, postsGet, setPosts);
+    // console.log(body);
+    postsGet(setPosts);
+    navigate('/', { replace: true });
+  }
+
+  const closebtn = () => {
+    navigate('/', { replace: true });    
+    console.log('Клик по кнопке закрыть окно редактирования');
   }
 
   return <>
     <div className='pageEdit'>
+      <div className='title-and-btn'>
+        <span className='title-page-edit'>Редактировать публикацию</span>
+        <span className='close-btn-edit' onClick={closebtn}>×</span>
+      </div>
       <input 
-        type='text' 
-        // id='inputEdit' 
+        type='text'
         id='inputEdit'
         name='inputEdit'
         value={inputEdit}
@@ -29,11 +49,12 @@ export default function Edit(props) {
         
         required
       />
-      <div type="button"
-          id='btnSavePost' 
-          onClick={btnSavePost}
-        >Сохранить</div>
+      <button type="button"
+          id='btn-save-post' 
+          onClick={FuncBtnSavePost}
+        >Сохранить</button>
     </div>
   </>;
 }
   
+{/* <button type="submit" id='newPostBtn' onClick={toPublish}>Опубликовать</button> */}

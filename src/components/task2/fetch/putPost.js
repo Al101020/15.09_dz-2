@@ -1,4 +1,4 @@
-const putPost = (body) => {
+const putPost = (url, body, postsGet, setPosts) => {
     fetch(url, {
       method: 'PUT',
       headers: {
